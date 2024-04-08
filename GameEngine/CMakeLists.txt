@@ -13,3 +13,21 @@ project ("GameEngine")
 
 # Include sub-projects.
 add_subdirectory ("GameEngine")
+
+add_subdirectory(googletest)
+
+# Enable testing
+enable_testing()
+
+# Add a test executable for your game engine tests
+add_executable(GameEngineTests
+    test/test1.cpp
+    test/test2.cpp
+    # Add more test files here as needed
+)
+
+# Link Google Test to your test executable
+target_link_libraries(GameEngineTests gtest gtest_main)
+
+# Add the test executable as a test target
+add_test(NAME GameEngineTests COMMAND GameEngineTests)
