@@ -29,7 +29,7 @@ int CALLBACK WinMain(HINSTANCE, HINSTANCE, LPSTR, INT)
 	WndCex.hIcon = LoadIcon(0, IDI_APPLICATION);
 	WndCex.hIconSm = LoadIcon(0, IDI_APPLICATION);
 
-	WndCex.lpszMenuName = (LPCSTR)WindowClass;
+	WndCex.lpszMenuName = WindowClass;
 
 	WndCex.lpszMenuName = nullptr;
 	WndCex.hInstance = HInstance();
@@ -39,18 +39,18 @@ int CALLBACK WinMain(HINSTANCE, HINSTANCE, LPSTR, INT)
 
 	/*Create and display our window */
 
-	HWND hwn = CreateWindow((LPCSTR)WindowClass, (LPCSTR)WindowTitle, WS_OVERLAPPEDWINDOW,
+	HWND hwn = CreateWindow(WindowClass, WindowTitle, WS_OVERLAPPEDWINDOW,
 		CW_USEDEFAULT, 0, WindowWidth, WindowHeight, nullptr, nullptr, HInstance(), nullptr);
 	if(!hwn)
 	{
-		MessageBox(0, "Failed to create the window!", 0, 0);
+		MessageBox(0, L"Failed to create the window!", 0, 0);
 		return 0;
 	}
 	ShowWindow(hwn, SW_SHOW);
 
 	/* Listen for message event */
 
-	MSG msg{ 0 };
+	MSG msg = { 0 };
 	while (msg.message != WM_QUIT)
 	{
 		if(PeekMessage(&msg,0,0,0,PM_REMOVE))

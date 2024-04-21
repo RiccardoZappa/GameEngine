@@ -9,6 +9,9 @@ if(WIN32)
     set_target_properties(GameEngine PROPERTIES LINK_FLAGS "/SUBSYSTEM:WINDOWS")
 endif()
 
+# Define _UNICODE and UNICODE to unset character set
+target_compile_definitions(GameEngine PRIVATE _UNICODE UNICODE)
+
 if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET GameEngine PROPERTY CXX_STANDARD 20)
 endif()
