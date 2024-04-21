@@ -1,4 +1,4 @@
-﻿// Main.cpp : Defines the entry point for the application.
+﻿
 #include <Windows.h>
 
 #define MAX_NAME_STRING 256
@@ -60,9 +60,4 @@ int CALLBACK WinMain(HINSTANCE, HINSTANCE, LPSTR, INT)
 		}
 	}
 	return 0;
-}
-
-int main()
-{
-	return WinMain(nullptr,nullptr,nullptr,1);
 }
