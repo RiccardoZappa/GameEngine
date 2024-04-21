@@ -9,7 +9,7 @@ CGameEngine::CGameEngine()
 
 bool CGameEngine::Initialize()
 {
-	
+	return true;
 }
 
 void CGameEngine::RunLoop()

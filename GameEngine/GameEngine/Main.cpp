@@ -1,20 +1,17 @@
 ﻿// Main.cpp : Defines the entry point for the application.
-#include "GameEngine.h"
+#include <Windows.h>
 
-using namespace GameEngine;
-
-int main(int argc, char* argv[])
+int CALLBACK WinMain(HINSTANCE hIstance, HINSTANCE, LPSTR lpCmdLine, INT nCmdshow)
 {
-	CGameEngine game_engine;
 
-	bool success = game_engine.Initialize();
+	/*Create a window*/
+	WNDCLASSEX Wnd;
+	Wnd.cbSize = sizeof(WNDCLASSEX);
+	Wnd.style = CS_HREDRAW | CS_VREDRAW;
+	Wnd.cbClsExtra = 0;
+	Wnd.cbWndExtra = 0;
 
-	if (success)
-	{
-		game_engine.RunLoop();
-	}
-
-	game_engine.ShutDown();
 
 	return 0;
 }
+
