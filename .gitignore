@@ -399,3 +399,6 @@ FodyWeavers.xsd
 
 #outpud build directory
 out/
+include/
+libs/
+textures/
