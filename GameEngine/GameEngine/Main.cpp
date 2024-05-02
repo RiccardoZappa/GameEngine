@@ -57,6 +57,12 @@ int main()
 
     // Create a GLFWwindow object that we can use for GLFW's functions
     GLFWwindow* window = glfwCreateWindow(WIDTH, HEIGHT, "work01", nullptr, nullptr);
+    if (window == nullptr)
+    {
+        std::cout << "Error! Failed to create the window" << std::endl;
+        glfwTerminate();
+        return -1;
+    }
     glfwMakeContextCurrent(window);
 
     // Set the required callback functions
