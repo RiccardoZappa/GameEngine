@@ -25,6 +25,8 @@
 // Function prototypes
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mode);
 
+void framebuffer_size_callback(GLFWwindow* window, int width, int height);
+
 // Window dimensions
 const GLuint WIDTH = 1200, HEIGHT = 900;
 
@@ -84,6 +86,8 @@ int main()
     glfwGetFramebufferSize(window, &width, &height);
     glViewport(0, 0, width, height);
 
+    //set bufferSize callback
+    glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
     // Build and compile our shader program
     // Vertex shader
@@ -205,4 +209,9 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
 {
     if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
         glfwSetWindowShouldClose(window, GL_TRUE);
+}
+
+void framebuffer_size_callback(GLFWwindow* window, int width, int height)
+{
+    glViewport(0, 0, width, height);
 }
