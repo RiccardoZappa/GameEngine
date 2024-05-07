@@ -12,6 +12,9 @@
 //#include <glew/glew.h>
 #include "../include/glad/glad.h"
 
+//GLM
+#include "../include/glm/glm.hpp"
+#include <glm/gtc/matrix_transform.hpp> 
 // GLFW
 #include "../include/glfw/glfw3.h"
 
@@ -150,6 +153,12 @@ int main()
         0, 1, 3,  // First Triangle
         1, 2, 3   // Second Triangle
     };
+
+    //rotate the vertices
+    float angle = glm::radians(45.0f);
+    glm::vec3 axis{ 1.0,0.0,0.0 };
+    glm::mat4  rotationMatrix = glm::rotate(glm::mat4(1.0f), angle, axis);
+    
     GLuint VBO, VAO, EBO;
     glGenVertexArrays(1, &VAO);
     glGenBuffers(1, &VBO);
