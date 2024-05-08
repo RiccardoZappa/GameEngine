@@ -36,5 +36,5 @@ set(LINK_LIBRARIES
     Shell32
     Advapi32)
 
-# Link against DirectX libraries
+# Link against Utils libraries
 target_link_libraries(GameEngine ${LINK_LIBRARIES})
