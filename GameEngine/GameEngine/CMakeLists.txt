@@ -8,7 +8,6 @@
 add_executable (GameEngine "Main.cpp"   
                             "../include/glad/glad.c")
 
-
 # Define _UNICODE and UNICODE to unset character set
 target_compile_definitions(GameEngine PRIVATE _UNICODE UNICODE)
 

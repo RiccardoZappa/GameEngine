@@ -17,6 +17,8 @@
 #include <glm/gtc/matrix_transform.hpp> 
 // GLFW
 #include "../include/glfw/glfw3.h"
+#include "Utils/model.h"
+#include "Utils/shaders.h"
 
 
 // confirm that GLAD didn't include windows.h
@@ -98,6 +100,20 @@ int main()
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
     // Build and compile our shader program
+    // we create and compile shaders (code of Shader class is in include/utils/shader.h)
+    Shader shader("00_basic.vert", "00_basic.frag");
+
+    // we load the model(s) (code of Model class is in include/utils/model.h)
+    Model cubeModel("../../models/cube.obj");
+    Model sphereModel("../../models/sphere.obj");
+    Model bunnyModel("../../models/bunny_lp.obj");
+
+    // We "install" the Shader Program as part of the current rendering process
+    // with only one Shader Program, we can do this call now, and not inside the main loop:
+    // we will use this Shader Program for everything is rendered after this call
+    shader.Use();   // <-- Don't forget this one!
+
+
     // Vertex shader
     GLint vertexShader = glCreateShader(GL_VERTEX_SHADER);
     glShaderSource(vertexShader, 1, &vertexShaderSource, NULL);
