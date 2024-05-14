@@ -2,18 +2,24 @@
 cmake_minimum_required(VERSION 3.27)
 
 
-add_executable(GameEngineUtils "mesh.h"
-                               "model.h"
-                               "shaders.h")
-
-# Define _UNICODE and UNICODE to unset character set
-target_compile_definitions(GameEngineUtils PRIVATE _UNICODE UNICODE)
+# Add the executable and specify its source files
+add_library(GameEngineUtils "mesh.h" "model.h" "shaders.h")
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET GameEngineUtils PROPERTY CXX_STANDARD 20)
 endif()
+set_target_properties(GameEngineUtils PROPERTIES LINKER_LANGUAGE CXX)
+
+# Add the include directories containing the header files
+target_include_directories(GameEngineUtils PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}../../include)
+
+# Define _UNICODE and UNICODE to unset character set
+target_compile_definitions(GameEngineUtils PRIVATE _UNICODE UNICODE)
+
+
 # Set include directories
 include_directories(../../include)
+
 # Set linker flags
 set(LINK_LIBRARIES  
     ../../../../libs/win/assimp-vc143-mt

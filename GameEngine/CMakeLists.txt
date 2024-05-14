@@ -18,6 +18,5 @@ add_subdirectory(googletest)
 
 add_subdirectory("test")
 
- #Add subfolder
- add_subdirectory("GameEngine/Utils")
+
 
