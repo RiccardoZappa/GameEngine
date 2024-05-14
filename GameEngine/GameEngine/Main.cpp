@@ -1,5 +1,4 @@
-﻿#include <iostream>
-
+﻿
 // THIS IS OPTIONAL AND NOT REQUIRED, ONLY USE THIS IF YOU DON'T WANT GLAD TO INCLUDE windows.h
 // GLAD will include windows.h for APIENTRY if it was not previously defined.
 // Make sure you have the correct definition for APIENTRY for platforms which define _WIN32 but don't use __stdcall
@@ -7,6 +6,7 @@
 #define APIENTRY __stdcall
 #endif
 
+#include <iostream>
 // GLEW
 //#define GLEW_STATIC
 //#include <glew/glew.h>
@@ -78,12 +78,17 @@ int main()
     // Initialize GLEW to setup the OpenGL Function pointers
     //glewInit();
 
+
     if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
     {
         std::cout << "Failed to initialize OpenGL context" << std::endl;
         return -1;
     }
 
+    int nrAttributes;
+    glGetIntegerv(GL_MAX_VERTEX_ATTRIBS, &nrAttributes);
+    std::cout << "Maximum nr of vertex attributes supported: " << nrAttributes << "\n";
+    
     // Define the viewport dimensions
     int width, height;
     glfwGetFramebufferSize(window, &width, &height);
