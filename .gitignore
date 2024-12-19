@@ -397,8 +397,9 @@ FodyWeavers.xsd
 # JetBrains Rider
 *.sln.iml
 
-#outpud build directory
+#output build directory
 out/
 include/
 libs/
 textures/
+build/
