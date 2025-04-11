@@ -1,9 +1,19 @@
-cmake_minimum_required(VERSION 3.16)
+cmake_minimum_required(VERSION 3.21)
 project(MyRenderingProject)
 
 # Set the C++ standard
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+
+find_package(assimp REQUIRED)
+find_package(Bullet REQUIRED)        # Includes bullet3, linearmath
+find_package(draco REQUIRED CONFIG)  # Might need custom config or FetchContent if not installed
+find_package(glfw3 REQUIRED CONFIG)
+find_package(minizip REQUIRED CONFIG)
+find_package(poly2tri REQUIRED CONFIG) # Might need custom setup
+find_package(pugixml REQUIRED CONFIG)
+find_package(ZLIB REQUIRED)
 
 # Add source files
 file(GLOB_RECURSE SOURCES src/*.cpp)
@@ -14,24 +24,14 @@ add_library(glad STATIC ${CMAKE_SOURCE_DIR}/include/glad/glad.c)
 # Include directories
 include_directories(${CMAKE_SOURCE_DIR}/include)
 
-# Link GLAD and other libraries to your executable
-target_link_libraries(MyRenderingApp glad)
-
 # Link libraries
-target_link_libraries(MyRenderingApp 
-    ${CMAKE_SOURCE_DIR}/libs/win/assimp-vc143-mt.lib
-    ${CMAKE_SOURCE_DIR}/libs/win/Bullet3Common.lib
-    ${CMAKE_SOURCE_DIR}/libs/win/BulletCollision.lib
-    ${CMAKE_SOURCE_DIR}/libs/win/BulletDynamics.lib
-    ${CMAKE_SOURCE_DIR}/libs/win/BulletInverseDynamics.lib
-    ${CMAKE_SOURCE_DIR}/libs/win/BulletSoftBody.lib
-    ${CMAKE_SOURCE_DIR}/libs/win/draco.lib
-    ${CMAKE_SOURCE_DIR}/libs/win/glfw3.lib
-    ${CMAKE_SOURCE_DIR}/libs/win/kubazip.lib
-    ${CMAKE_SOURCE_DIR}/libs/win/LinearMath.lib
-    ${CMAKE_SOURCE_DIR}/libs/win/minizip.lib
-    ${CMAKE_SOURCE_DIR}/libs/win/poly2tri.lib
-    ${CMAKE_SOURCE_DIR}/libs/win/polyclipping.lib
-    ${CMAKE_SOURCE_DIR}/libs/win/pugixml.lib
-    ${CMAKE_SOURCE_DIR}/libs/win/zlib.lib
+target_link_libraries(MyRenderingApp
+    glad
+    assimp::assimp
+    ${BULLET_LIBRARIES}
+    draco::draco
+    glfw
+    minizip::minizip
+    pugixml::pugixml
+    ZLIB::ZLIB
 )

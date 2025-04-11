@@ -22,6 +22,9 @@
     #error windows.h was included!
 #endif
 
+#include <bullet/btBulletCollisionCommon.h>
+btVector3 nome{};
+btBoxShape beppe{nome};
 
 // Function prototypes
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mode);

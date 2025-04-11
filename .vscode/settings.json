@@ -1,0 +1,4 @@
+{
+    "cmake.sourceDirectory": "C:/GameEngine/GameEngine",
+	"cmake.useCMakePresets": always
+}

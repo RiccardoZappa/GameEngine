@@ -1,0 +1,12 @@
+{
+  "dependencies": [
+    "assimp",
+    "bullet3",
+    "draco",
+    "glfw3",
+    "minizip",
+    "jhasse-poly2tri",
+    "pugixml",
+    "zlib"
+  ]
+}
