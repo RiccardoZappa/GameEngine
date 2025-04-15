@@ -179,7 +179,7 @@ int main()
     glClearColor(0.26f, 0.46f, 0.98f, 1.0f);
 
     // the Shader Program for the objects used in the application
-    Shader object_shader = Shader("09_illumination_models.vert", "10_illumination_models.frag");
+    Shader object_shader = Shader("../../../src/09_illumination_models.vert", "../../../src/10_illumination_models.frag");
 
     // we load the model(s) (code of Model class is in include/utils/model.h)
     Model cubeModel("../../../models/cube.obj");

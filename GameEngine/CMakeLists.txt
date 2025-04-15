@@ -16,7 +16,7 @@ find_package(pugixml REQUIRED CONFIG)
 find_package(ZLIB REQUIRED)
 
 # Add source files
-file(GLOB_RECURSE SOURCES src/*.cpp src/*.frag src/*.vert)
+file(GLOB_RECURSE SOURCES src/*.cpp)
 add_executable(MyRenderingApp ${SOURCES})
 
 add_library(glad STATIC ${CMAKE_SOURCE_DIR}/include/glad/glad.c)
