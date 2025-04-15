@@ -411,3 +411,6 @@ build/
 #cmake build
 cmake-build-release/
 cmake-build-debug/
+
+#vscode
+.vscode/
