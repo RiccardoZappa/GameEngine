@@ -10,13 +10,13 @@ find_package(assimp REQUIRED)
 find_package(Bullet REQUIRED)        # Includes bullet3, linearmath
 find_package(draco REQUIRED CONFIG)  # Might need custom config or FetchContent if not installed
 find_package(glfw3 REQUIRED CONFIG)
-find_package(minizip REQUIRED CONFIG)
+find_package(glm REQUIRED CONFIG)
 find_package(poly2tri REQUIRED CONFIG) # Might need custom setup
 find_package(pugixml REQUIRED CONFIG)
 find_package(ZLIB REQUIRED)
 
 # Add source files
-file(GLOB_RECURSE SOURCES src/*.cpp)
+file(GLOB_RECURSE SOURCES src/*.cpp src/*.frag src/*.vert)
 add_executable(MyRenderingApp ${SOURCES})
 
 add_library(glad STATIC ${CMAKE_SOURCE_DIR}/include/glad/glad.c)
@@ -31,7 +31,7 @@ target_link_libraries(MyRenderingApp
     ${BULLET_LIBRARIES}
     draco::draco
     glfw
-    minizip::minizip
+    glm::glm
     pugixml::pugixml
     ZLIB::ZLIB
 )

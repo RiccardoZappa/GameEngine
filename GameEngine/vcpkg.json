@@ -4,9 +4,10 @@
     "bullet3",
     "draco",
     "glfw3",
-    "minizip",
     "jhasse-poly2tri",
+    "minizip",
     "pugixml",
-    "zlib"
+    "zlib",
+    "glm"
   ]
 }

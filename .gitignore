@@ -403,3 +403,11 @@ include/
 libs/
 textures/
 build/
+
+#idea files
+.idea
+
+
+#cmake build
+cmake-build-release/
+cmake-build-debug/
